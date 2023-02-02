@@ -5,6 +5,7 @@
         
         
         
+        
         {
             "name": ".NET Core Attach",
             "type": "coreclr",
