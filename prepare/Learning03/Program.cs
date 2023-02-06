@@ -1,44 +1,27 @@
 using System;
 
-
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to my Journal");
-        Journal myjournal = new Journal();
-        int questions = 0;
-        while (questions != 5)
-        {
-            Console.WriteLine($"Please select one of the following program");
-            Console.WriteLine("1. Write");
-            Console.WriteLine("2. Display");
-            Console.WriteLine("3. Load");
-            Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit");
+        //constructors to pass in values
+        Fraction myFraction1 = new Fraction();
+        Console.WriteLine(myFraction1.GetFractionString());
+        Console.WriteLine(myFraction1.GetDecimalValue());
 
-            Console.Write("what would you like to do? ");
-            string enter = Console.ReadLine();
-            questions = int.Parse(enter);
+        Fraction myFraction2 = new Fraction(5);
+        Console.WriteLine(myFraction2.GetFractionString());
+        Console.WriteLine(myFraction2.GetDecimalValue());
 
-            if (questions == 1)
-            {                
-                myjournal.write();
-            }
-            else if (questions == 2)
-            {                
-                myjournal.Display();
-            }
-            else if (questions == 3)
-            {
-                myjournal.LoadFromFile();
-            }
-            else if (questions == 4)
-            {
-                myjournal.SaveToFile();
-            }
-        }        
+        Fraction myFration3 = new Fraction(3, 4);
+        Console.WriteLine(myFration3.GetFractionString());
+        Console.WriteLine(myFration3.GetDecimalValue());
 
+        Fraction myFraction4 = new Fraction(1, 3);
+        Console.WriteLine(myFraction4.GetFractionString());
+        Console.WriteLine(myFraction4.GetDecimalValue());
+
+        
+       
     }
-
 }
