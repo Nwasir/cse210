@@ -1,27 +1,27 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 class Reference
 {
     private string Book;
     private int Chapter;
-    private int Verses;  
-
-          
-    /*public List<Word> words = new List<Word>(new string[]
-    {
-        "Trust", "in", "Lord", "with", "all", "thine", "heart", "and", "lean", 
-        "not", "unto", "thine", "own","understanding;", "in", "all", "thy", "ways",
-        "acknowledge", "him", "him,", "and", "he", "shall", "direct",
-        "thy", "paths."
-    });*/
-
-    public Reference(string book, int chapter, int verses)
+    private int Verse;
+    private int VerseEnd;
+    private string referenceStr;
+   
+    public Reference(string book, int chapter, int verse)
     {
         Book = book;
         Chapter = chapter;
-        Verses = verses;
+        Verse = verse;
+        referenceStr = $"{Book} {Chapter}: {Verse}";
+    }
+    public Reference(string book, int chapter, int verse, int verseEnd)
+    {
+        Book = book;
+        Chapter = chapter;
+        Verse = verse;
+        VerseEnd = verseEnd;
+        referenceStr = $"{Book} {Chapter}: {Verse} - {VerseEnd}";
     }
 
     public string GetBook()
@@ -34,6 +34,11 @@ class Reference
     }
     public int GetVerses()
     {
-        return Verses;
+        return Verse;
+    }
+    public string GetSummary()
+    {
+        referenceStr = $"{Book} {Chapter}: {Verse} - {VerseEnd}";
+        return referenceStr;
     }
 }
