@@ -29,19 +29,13 @@ class Reflection : Activity
 
     public void Run()
     {
-        //int i = _duration;
-        // while (i > 0)
-        // {
+        
         string prompt = prompts[random.Next(prompts.Count)];
         Console.WriteLine("consider the following prompt:");
         Console.WriteLine($"---{prompt}---");
         Console.WriteLine("Press enter when you have something in mind");
         string input = Console.ReadLine();
-        // Console.WriteLine("Now ponder on each of the following question as they relate to this experience");
-        // Thread.Sleep(3000);
-        // Console.Write("\b \b");
-        input = questions[random.Next(questions.Count)];
-        Console.WriteLine(input);
+      
 
         foreach (string question in questions)
         {

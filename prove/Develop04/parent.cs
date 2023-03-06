@@ -2,15 +2,7 @@ using System;
 class Activity
 {
     protected int _duration;
-    public int _countDown;
-    public string _firstQuestin;
-    
-    public void DisplayFirstQuestion(string question)
-    {
-
-        //Console.WriteLine($"This activity will last for {Duration} seconds.");
-
-    }
+        
     public void EndMessage()
     {
         Console.WriteLine("Well done!");
@@ -20,11 +12,11 @@ class Activity
     public void pauseTimer(int _activationCount)
     {
         int countDown = _activationCount;
-        Console.WriteLine("Get ready.....\n");
+        Console.Write("Get ready...\n\n");
 
         while (countDown > 0)
         {
-            Console.Write(countDown);
+            Console.Write($"{countDown}");
             countDown--;
             Thread.Sleep(2000);// pause for 2 seconds
             Console.Write("\b \b");
@@ -33,7 +25,7 @@ class Activity
     }
     public  Activity()
     {
-        Console.WriteLine("How long in seconds, would you like for your session? ");
+        Console.Write("How long in seconds, would you like for your session? ");
         string text = Console.ReadLine();
         int q = int.Parse(text);
         _duration = q;        
