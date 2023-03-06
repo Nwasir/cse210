@@ -1,8 +1,8 @@
 using System;
-class Reflection : Parent
+class Reflection : Activity
 {
-    private  Random random = new Random();
-    private  List<string> prompts = new List<string>()
+    private Random random = new Random();
+    private List<string> prompts = new List<string>()
     {
         "Think of a time when you stood up for someone else.",
         "Think of a time when you did something really difficult.",
@@ -21,28 +21,41 @@ class Reflection : Parent
         "What did you learn about yourself through this experience?",
         "How can you keep this experience in mind in the future?"
     };
-    public Reflection(int duration) : base(duration)
+
+    public Reflection() : base()
     {
-        Duration = duration;
+        //_duration = duration;
     }
-    
+
     public void Run()
     {
-        DisplayPrompts();
-        //Console.WriteLine("This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
+        //int i = _duration;
+        // while (i > 0)
+        // {
         string prompt = prompts[random.Next(prompts.Count)];
-        Console.WriteLine(prompt);
+        Console.WriteLine("consider the following prompt:");
+        Console.WriteLine($"---{prompt}---");
+        Console.WriteLine("Press enter when you have something in mind");
+        string input = Console.ReadLine();
+        // Console.WriteLine("Now ponder on each of the following question as they relate to this experience");
+        // Thread.Sleep(3000);
+        // Console.Write("\b \b");
+        input = questions[random.Next(questions.Count)];
+        Console.WriteLine(input);
+
         foreach (string question in questions)
         {
             Console.Write(question + " ");
             for (int i = 0; i < 3; i++)
             {
                 Console.Write(".");
-                Thread.Sleep(500);
+                Thread.Sleep(2000);
             }
             Console.WriteLine();
         }
-        Thread.Sleep(Duration * 1000);
-        Finish();
+        Console.Write(".");
+        Thread.Sleep(4000);
     }
+
+    
 }

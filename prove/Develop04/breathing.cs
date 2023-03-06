@@ -1,16 +1,24 @@
 using System;
-class Breathing : Parent {
-    public Breathing(int duration) : base(duration) {
-        Duration = duration;
+class Breathing : Activity {
+    public Breathing() : base() {
+        //_duration = duration;
     }
 
     public void StartActivity() {
-        //Console.WriteLine("This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.");
-        for (int i = 0; i < Duration; i++) {
+        
+        //for (int i = 0; i < _duration; i++) 
+        int i = _duration;
+        //while (i > 0)
+        DateTime start = DateTime.Now;
+        while ((DateTime.Now - start).TotalSeconds < i)
+        {
             Console.WriteLine("Breathe in...");
-            Thread.Sleep(3000); // Pause for 3 seconds
+            Thread.Sleep(2000); // Pause for 4 seconds
             Console.WriteLine("Breathe out...");
-            Thread.Sleep(3000); // Pause for 3 seconds
+            Thread.Sleep(4000); // Pause for 6 seconds
+            i --;
         }
+        Console.Write(".");
+        Thread.Sleep(4000);
     }
 }
