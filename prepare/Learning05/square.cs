@@ -2,14 +2,15 @@ using System;
 
 public class Square : Shape
 {
-    private string _side;
-    public Square(string color) : base( string color)
+    private double _side;
+    public Square(string color, double side) : base (color)
     {
-
+        //_color = color;
+        _side = side;
     }
 
-    public override GetArea()
+    public override double GetArea()
     {
-        return _side;
+        return _side * _side;
     }
 }
