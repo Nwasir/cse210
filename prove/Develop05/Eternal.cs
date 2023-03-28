@@ -20,10 +20,11 @@ public class EternalGoal : Goal
         Console.WriteLine($"[{(_isComplete ? 'X' : ' ')}] {_name} ({_description})");
     }
 
-    public override void RecordEvent(int totalPoints)
+    public override int RecordEvent(int totalPoints)
     {
         _count++;
         Console.WriteLine($"Recorded progress on {_name} (+{_point} points)");
+        return totalPoints + _point;
     }
    
    public int GetCount()

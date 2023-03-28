@@ -50,6 +50,6 @@ public abstract class Goal
         return _isComplete;
     }
 
-    public abstract void RecordEvent(int totalPoints);
+    public abstract int RecordEvent(int totalPoints);
 
 }

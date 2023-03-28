@@ -13,9 +13,10 @@ public class SimpleGoal : Goal
     }
 
     
-    public override void RecordEvent(int totalPoints)
+    public override int RecordEvent(int totalPoints)
     {
         _isComplete = true;
+        return totalPoints + _point;
     }
     
     public override void Status()

@@ -3,7 +3,7 @@ using System.IO;
 class Program
 {
     private static List<Goal> goals = new List<Goal>();
-    private int totalPoints;
+    static int totalPoints = 0;
     static void Main(string[] args)
     {
         //Goal myGoal = new Goal();  
@@ -32,11 +32,11 @@ class Program
 
                 void StandardInput()
                 {
-                    Console.WriteLine("What is the name of you goal?");
+                    Console.Write("What is the name of your goal?-- ");
                     name = Console.ReadLine();
-                    Console.WriteLine("what is a short description of it? ");
+                    Console.Write("what is a short description of it?-- ");
                     description = Console.ReadLine();
-                    Console.WriteLine("what is the amount of points associated with this goal? ");
+                    Console.Write("what is the amount of points associated with this goal?-- ");
                     point = int.Parse(Console.ReadLine());
                 }
 
@@ -68,9 +68,9 @@ class Program
                     int bonus;
                     int target;
                     StandardInput();
-                    Console.Write("What is the target amount? ");
+                    Console.Write("How many times does this goal need to be accomplished for a bonus?-- ");
                     target = int.Parse(Console.ReadLine());
-                    Console.Write("What is the bonus amount? ");
+                    Console.Write("What is the bonus amount?-- ");
                     bonus = int.Parse(Console.ReadLine());
                     CheckListGoal myCheckList = new CheckListGoal(name, description, point, target, bonus);
                     goals.Add(myCheckList);
@@ -102,21 +102,24 @@ class Program
         {
             goal.Status();
         }
+        Console.Write($"\nYou have {totalPoints} points\n");
     }
     public static void SaveGoal()
     {
 
-        Console.WriteLine("enter the filename ");
+        Console.Write("enter the filename ");
         string filename = Console.ReadLine();
         foreach (Goal goal in goals)
         {
+
             using (StreamWriter outputFile = new StreamWriter(filename, append: true))
             {
+                //Console.Write($"{totalPoints}");
                 if (goal is CheckListGoal checklist)
                     outputFile.WriteLine($"{checklist.GetType()}|{checklist.GetName()}|{checklist.GetDescription()}|{checklist.GetPoint()}|{checklist.GetIsComplete()}|{checklist.GetCount()}|{checklist.GetTarget()}|{checklist.GetBonus()}");
                 else if (goal is EternalGoal eternal)
                 {
-                    outputFile.WriteLine($"{eternal.GetType()}|{eternal.GetName()}|{eternal.GetDescription()}|{eternal.GetPoint()}");
+                    outputFile.WriteLine($"{eternal.GetType()}|{eternal.GetName()}|{eternal.GetDescription()}|{eternal.GetPoint()}|{eternal.GetIsComplete()}|{eternal.GetCount()}");
                 }
                 else
                     outputFile.WriteLine($"{goal.GetType()}|{goal.GetName()}|{goal.GetDescription()}|{goal.GetPoint()}|{goal.GetIsComplete()}");
@@ -126,7 +129,7 @@ class Program
     public static void LoadGoal()
     {
         //foreach (string )
-        Console.WriteLine("Enter the filename ");
+        Console.Write("Enter the filename: ");
         string filename = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(filename);
         goals.Clear();
@@ -146,6 +149,7 @@ class Program
             else
             {
                 CheckListGoal checklist = new CheckListGoal(data[1], data[2], int.Parse(data[3]), bool.Parse(data[4]), int.Parse(data[5]), int.Parse(data[6]), int.Parse(data[7]));
+                goals.Add(checklist);
             }
         }
     }
@@ -155,6 +159,16 @@ class Program
         foreach (Goal goal in goals)
         {
             goal.Status();
-        }   
+           
+        }
+        Console.Write("Which goal did you accomplish?-- ");
+        int goalchoice = int.Parse(Console.ReadLine());
+        totalPoints = goals[goalchoice - 1].RecordEvent(totalPoints);
+
+        // else if (goalchoice == 2)
+        // {
+        //     totalPoints = goals[1].RecordEvent(totalPoints);
+        // }
+        // else if ()
     }
 }

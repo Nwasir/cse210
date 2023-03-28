@@ -28,7 +28,7 @@ public class CheckListGoal : Goal
         Console.WriteLine($"[{(_isComplete ? 'X' : ' ')}] {_name} ({_description}) --- Currently completed: {_count}/{_target} ");
     }
 
-    public override void RecordEvent(int totalPoints)
+    public override int RecordEvent(int totalPoints)
     {
         _count++;
         Console.WriteLine($"Recorded progress on {_name} (+{_point} points)");
@@ -39,6 +39,7 @@ public class CheckListGoal : Goal
             Console.WriteLine($"Congratulations, you have completed {_name} and earned a bonus of {_bonus} points!");
             totalPoints += _point + _bonus;
         }
+        return totalPoints;
     }
 
     public int GetCount()
@@ -50,7 +51,7 @@ public class CheckListGoal : Goal
     {
         return _bonus;
     }
-   
+
     public int GetTarget()
     {
         return _target;
