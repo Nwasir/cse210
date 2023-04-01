@@ -17,24 +17,24 @@ class Order
         {
             subtotal += product.GetPrice() * product.GetQuantity();
         }
-        float shippingCost = _customer.GetAddress.IsInUSA() ? 5m : 35m;
+        float shippingCost = _customer.GetAddress().IsInUSA() ? 5f : 35f;
         return subtotal + shippingCost;
     }
 
     public string GetPackingLabel()
     {
-        var label = $"Packing Label:\n";
+        var label = ($"Packing Label:\n");
         // Console.Write("Packing Label:\n");
         // var lable = Console.ReadLine();
         foreach (var product in _products)
         {
-            label += $"{product.GetName()} ({product.GetID()})\n";
+            label += ($"{product.GetName()} ({product.GetID()})\n");
         }
         return label;
     }
 
     public string GetShippingLabel()
     {
-        return $"Shipping Label:\n{_customer.GetName}\n{_customer.GetAddress().ToString()}";
+        return ($"Shipping Label:\n{_customer.GetName()}\n{_customer.GetAddress().ToString()}");
     }
 }
