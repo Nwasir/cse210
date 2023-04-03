@@ -12,9 +12,9 @@ class Address {
         _zip = zip;
     }
 
-    // public override string ToString() {
-    //     return ($"{_street}, {_city}, {_state} {_zip}");
-    // }
+    public string GetAddressString() {
+        return ($"{_street}, {_city}, {_state} {_zip}");
+    }
     public string GetStreet()
     {
         return _street;

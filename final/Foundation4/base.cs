@@ -1,5 +1,5 @@
 using System;
-class Activity
+abstract class Activity
 {
     private DateTime _date;
     private int _length; // in minutes
@@ -13,18 +13,9 @@ class Activity
     {
         return _length;
     }
-    public virtual double Distance()
-    {
-        return 0;
-    }    
-    public virtual double Speed()
-    {
-        return 0;
-    }    
-    public virtual double Pace()
-    {
-        return 0;
-    }    
+    public abstract double Distance();  
+    public abstract double Speed();   
+    public abstract double Pace();   
     public virtual string GetSummary()
     {
         return ($"{_date.ToString("dd MMM yyyy")} ");

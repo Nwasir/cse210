@@ -7,8 +7,9 @@ class OutDoor : Event {
         _weather = weather;
     }
 
-    public override string GetFullDetails() {
-        return ($"{base.GetFullDetails()}Weather: {_weather}\n");
+    public override void GetFullDetails()
+    {
+        Console.WriteLine($"{GetTitle()}\n{GetDescription()}\n{_dateTime}\n{_address.GetAddressString()}\nWeather: {_weather}\n");
     }
     public string GetWeather()
     {

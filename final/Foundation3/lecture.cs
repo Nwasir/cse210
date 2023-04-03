@@ -9,8 +9,10 @@ class Lecture : Event {
         _speaker = speaker;
         _capacity = capacity;
     }
-    public override string GetFullDetails() {
-        return $"{base.GetFullDetails()}Speaker: {_speaker}\nCapacity: {_capacity}\n";
+   
+    public override void GetFullDetails()
+    {
+        Console.WriteLine($"{GetTitle()}\n{GetDescription()}\n{_dateTime}\n{_address.GetAddressString()}\nSpeaker: {_speaker}\nCapacity: {_capacity}\n");
     }
     public string GetSpeaker()
     {
@@ -20,4 +22,5 @@ class Lecture : Event {
     {
         return _capacity;
     }
+   
 }

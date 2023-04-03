@@ -9,9 +9,9 @@ class Reception : Event
         _rsvpEmail = rsvpEmail;
     }
 
-    public override string GetFullDetails()
+    public override void GetFullDetails()
     {
-        return ($"{base.GetFullDetails()}RSVP Email: {_rsvpEmail}\n");
+        Console.WriteLine($"{GetTitle()}\n{GetDescription()}\n{_dateTime}\n{_address.GetAddressString()}\nRSVP Email: {_rsvpEmail}\n");
     }
     public string GetRSVPemail()
     {

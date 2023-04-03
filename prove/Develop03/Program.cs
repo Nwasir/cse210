@@ -10,8 +10,7 @@ class Program
         //Console.WriteLine(reference.GetSummary());
         string words = "Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all they ways ackowledge him and he shall direct thy paths.";
 
-        Scripture scripture = new Scripture(reference, words);
-
+        Scripture scripture = new Scripture(reference, words);        
         Console.Clear();
         scripture.Reference.GetSummary();
         Console.WriteLine(reference.GetSummary());

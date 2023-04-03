@@ -23,9 +23,7 @@ class Order
 
     public string GetPackingLabel()
     {
-        var label = ($"Packing Label:\n");
-        // Console.Write("Packing Label:\n");
-        // var lable = Console.ReadLine();
+        var label = ($"Packing Label:\n");        
         foreach (var product in _products)
         {
             label += ($"{product.GetName()} ({product.GetID()})\n");

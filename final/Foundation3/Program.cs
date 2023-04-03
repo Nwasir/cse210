@@ -9,8 +9,8 @@ public class Program
         Address myAddress3 = new Address("Aba owerri Road", "Aba", "Abia", "84101");
 
         Lecture mylecture = new Lecture(
-            "Polymorphism in C#",
-            "Learn practical aspect of Polymorphism in C#.",
+            "Inheritance in C#",
+            "Learn practical aspect of Inheritance in C#.",
             new DateTime(2023, 4, 30, 13, 0, 0),
             myAddress1,
             "Professor Nathan Parrish",
@@ -18,7 +18,7 @@ public class Program
         );
 
         Console.WriteLine("Lecture:");
-        Console.WriteLine(mylecture.GetFullDetails());
+        mylecture.GetFullDetails();
 
         Reception myReception = new Reception(
             "Networking Mixer",
@@ -29,18 +29,18 @@ public class Program
         );
 
         Console.WriteLine("Reception:");        
-        Console.WriteLine(myReception.GetFullDetails());   
+        myReception.GetFullDetails();   
 
         
         OutDoor myOutDoor = new OutDoor(
         "Nigerian BYUI on line students",
-        "Celebrate the end of successful semester.",
+        "Celebration of successful semester.",
         new DateTime(2023, 4, 7, 12, 3, 0),
         myAddress3,
         "sunny"
     );
         Console.WriteLine("Out Door Event:");       
-        Console.WriteLine(myOutDoor.GetFullDetails());
+        myOutDoor.GetFullDetails();
         
     }
 }
